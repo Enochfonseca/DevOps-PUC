@@ -30,4 +30,20 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
 
+
+  docker:
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+        with:
+          config: .github/buildkitd.toml
+
         
