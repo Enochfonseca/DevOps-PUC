@@ -46,4 +46,10 @@ jobs:
         with:
           config: .github/buildkitd.toml
 
-        
+
+      - name: Build and push
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: true
+          tags: user/app:latest
