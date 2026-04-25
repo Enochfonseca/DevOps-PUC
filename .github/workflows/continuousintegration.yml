@@ -43,5 +43,5 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
-          push: false
-          tags: user/app:latest
+          push: true
+          tags: enochfonseca/app:latest
