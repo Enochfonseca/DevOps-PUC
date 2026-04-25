@@ -30,6 +30,15 @@ jobs:
         with:
           config: .github/buildkitd.toml
 
+<<<<<<< HEAD
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAMEE }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+=======
+>>>>>>> parent of 4af9659 (DISCORD)
       - name: Build and push
         uses: docker/build-push-action@v7
         with:
