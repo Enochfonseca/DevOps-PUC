@@ -17,14 +17,14 @@ class Estudante(BaseModel):
 @app.get("/helloworld")
 async def root():
     return {"message": "Hello World"}
-@app.get("/funcaoteste}")
+@app.get("/funcaoteste")
 async def funcaoteste():
     return {"teste": True, "num_aleatorio": random.randint(0, 2000)}
 
 @app.post("/estudantes/cadastro")
 async def create_estudante(estudante: Estudante):
     return estudante
-@app.put("/estudantes/update/{id_estudante]")
+@app.put("/estudantes/update/{id_estudante}")
 async def update_item(id_estudante: int):
     return id_estudante > 0
 
