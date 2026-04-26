@@ -54,5 +54,6 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
-          push: false
-          tags: user/app:latest
+          file: ./Dockerfile
+          push: true
+          tags: ghcr.io/enochfonseca/app:latest
