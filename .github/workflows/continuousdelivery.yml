@@ -56,4 +56,8 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
+Dockerfilesomativa
           tags: ghcr.io/enochfonseca/app:latest
+=======
+          tags: ghcr.io/${{ github.repository_owner }}/app:latest
+ main
