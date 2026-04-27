@@ -16,6 +16,7 @@ jobs:
         with:
           linter: pylint
 
+
   docker:
     runs-on: ubuntu-latest
     steps:
@@ -33,6 +34,7 @@ jobs:
           context: .
           push: true
           tags: user/app:latest
+
 
 
     discord:
