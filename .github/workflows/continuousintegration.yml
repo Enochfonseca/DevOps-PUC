@@ -30,26 +30,12 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          push: false   # CI normalmente não publica, só valida
+          push: false   # CI só valida
           tags: ghcr.io/${{ github.repository_owner }}/app:ci-test
 
-  discord:
-    runs-on: ubuntu-latest
-    steps:
       - name: Notify Discord
         uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          message: "CI finalizado para ${{ github.repository }} (workflow: ${{ github.workflow }})"
-
-
-
-
-    discord:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Discord Webhook Action
-          uses: tsickert/discord-webhook@v7.0.0
-          with:
-            webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-            content: "Test"
+          args: "CI finalizado para ${{ github.repository }} (workflow: ${{ github.workflow }})"
