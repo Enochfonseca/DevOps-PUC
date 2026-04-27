@@ -28,13 +28,15 @@ jobs:
 
   discord:
     runs-on: ubuntu-latest
+    needs: docker
     steps:
+update_integration
+     
       - name: Run Discord Webhook
         uses: Sniddl/discord-commits@v1.6
+
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          template: "avatar-with-link"
-          include-extras: true
+          args: "Deploy concluído para ${{ github.repository }} (workflow: ${{ github.workflow }})"
 
 
 
