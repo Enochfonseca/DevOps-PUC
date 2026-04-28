@@ -19,10 +19,20 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
+
+      - name: Build and push Docker image
+        env:
+          IMAGE_NAME: ghcr.io/${{ toLower(github.repository_owner) }}/app:latest
+        run: |
+          docker buildx build --push -t $IMAGE_NAME .
 
 testes:
   runs-on: ubuntu-latest
